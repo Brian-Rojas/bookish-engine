@@ -28,7 +28,7 @@ class Category(models.Model):
 class Note(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now=False, auto_now_add=True)
-    date_updated = models.DateField(auto_now=True, auto_now_add=True)
+    date_updated = models.DateField(auto_now=True, auto_now_add=False)
     text = models.TextField()
     title = models.CharField(max_length=200)
 
@@ -37,7 +37,7 @@ class Quote(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     date_created = models.DateTimeField(auto_now=False, auto_now_add=True)
-    date_updated = models.DateField(auto_now=True, auto_now_add=True)
+    date_updated = models.DateField(auto_now=True, auto_now_add=False)
     author = models.CharField(max_length=100)
     text = models.TextField()
     page_found = models.IntegerField(default=0)
