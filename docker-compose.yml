@@ -1,0 +1,25 @@
+version: '3'
+volumes:
+  pgdata:
+services:
+  python:
+    build:
+      context: .
+      dockerfile: docker/dev/Dockerfile
+    environment:
+    - PYTHONUNBUFFERED=1
+    volumes:
+      - ./app:/app
+    ports:
+      - 8000:8000
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: librarian
+      POSTGRES_DB: library
+      POSTGRES_PASS: library
+    ports:
+      - 5432:5432
