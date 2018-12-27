@@ -19,5 +19,5 @@ class BookSerializer(serializers.ModelSerializer):
             'book_quotes',
             'book_summary',
             'favorite',
-            'isbn'
+            'ISBN'
         )
