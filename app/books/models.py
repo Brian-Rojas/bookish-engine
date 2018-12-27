@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
 class Book(models.Model):
     title = models.CharField(max_length=200)
@@ -25,7 +26,7 @@ class Category(models.Model):
 
 
 class Note(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now=False, auto_now_add=True)
     date_updated = models.DateField(auto_now=True, auto_now_add=True)
     text = models.TextField()
@@ -33,7 +34,7 @@ class Note(models.Model):
 
 
 class Quote(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     date_created = models.DateTimeField(auto_now=False, auto_now_add=True)
     date_updated = models.DateField(auto_now=True, auto_now_add=True)
