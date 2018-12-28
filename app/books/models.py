@@ -20,9 +20,15 @@ class Book(models.Model):
     # similar_books =
     # image =
 
+    def __str__():
+        return self.title
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
+
+    def __str__():
+        return self.name
 
 
 class Note(models.Model):
