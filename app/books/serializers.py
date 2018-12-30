@@ -21,3 +21,9 @@ class BookSerializer(serializers.ModelSerializer):
             'favorite',
             'ISBN'
         )
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ('name')
