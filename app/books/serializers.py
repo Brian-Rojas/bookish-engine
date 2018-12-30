@@ -39,3 +39,18 @@ class NoteSerializer(serializers.ModelSerializer):
             'text',
             'title'
         )
+
+
+class QuoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Quote
+        fields = (
+            'user',
+            'title',
+            'date_created',
+            'date_updated',
+            'author',
+            'text',
+            'page_found',
+            'favorite'
+        )
