@@ -5,7 +5,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100, null=True)
     inventory = models.IntegerField(default=0)
-    notes = models.ForeignKey('Note', on_delete=models.CASCADE, null=True)
+    # notes = models.ForeignKey('Note', on_delete=models.CASCADE, null=True)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, null=True)
     read = models.BooleanField(default=False)
     date_purchased = models.DateField(auto_now=False, auto_now_add=False, null=True)
@@ -38,6 +38,9 @@ class Note(models.Model):
     date_updated = models.DateField(auto_now=True, auto_now_add=False)
     note = models.TextField()
     title = models.CharField(max_length=200, null=True)
+
+    def __str__(self):
+        return self.title
 
 
 class Quote(models.Model):
