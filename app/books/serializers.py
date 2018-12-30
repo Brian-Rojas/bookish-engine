@@ -36,9 +36,10 @@ class NoteSerializer(serializers.ModelSerializer):
         model = Note
         fields = (
             'user',
+            'book',
             'date_created',
             'date_updated',
-            'text',
+            'note',
             'title'
         )
 
