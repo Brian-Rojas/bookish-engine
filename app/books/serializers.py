@@ -27,3 +27,15 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ('name')
+
+
+class NoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Note
+        fields = (
+            'user',
+            'date_created',
+            'date_updated',
+            'text',
+            'title'
+        )
